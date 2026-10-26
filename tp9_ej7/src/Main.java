@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
     public static void main(String[] args) {
         Persona[] personas = {
@@ -15,5 +17,23 @@ public class Main {
                 mayor = personas[i];
             }
         }
+    }
+    void conseguirMenor (Persona[] personas){
+        Persona menor = personas[0];
+        for (int i = 1; i < personas.length; i++) {
+            if (menor.getEdad() > personas[i].getEdad()){
+                menor = personas[i];
+            }
+        }
+    }
+    Persona busquedaNombre(Persona[] personas, String personaBuscada){
+        for (int i = 0; i < personas.length; i++) {
+            if (personas[i].getNombre().equals(personaBuscada)){
+                return personas[i];
+            }
+        }
+        System.out.println("Persona no encontrada.");
+        Persona pNula = null;
+        return pNula;
     }
 }
