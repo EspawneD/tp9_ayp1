@@ -7,7 +7,8 @@ public class Main {
                 new Persona("Pepe", 18),
                 new Persona("Tomasito", 42),
                 new Persona("Dardios", 27),
-                new Persona("Facu",35)
+                new Persona("Facu",35),
+                new Persona("Fac", 35)
         };
         ordenarEdad(personas);
         mostrarNombresOrdenados(personas);
@@ -22,7 +23,9 @@ public class Main {
 		for (int i=0; i < personas.length - 1; i++){
 			int posMenor = i;
 			for (int j = i + 1; j < personas.length; j++){
-				if (personas[j].getEdad() < personas[posMenor].getEdad()){
+				if (personas[j].getEdad() < personas[posMenor].getEdad() || 
+				(personas[posMenor].getEdad() == ( personas[j].getEdad() ) 
+				&& personas[j].getNombre().compareTo(personas[posMenor].getNombre()) < 0 )){
 					posMenor = j;
 					}
 				}
