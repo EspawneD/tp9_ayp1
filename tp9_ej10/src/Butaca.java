@@ -16,8 +16,14 @@ public class Butaca {
 		return precio;
 		}
 
+	public String getCategoria(){ return categoria; }
+
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+
+	public void setOcupado(boolean ocupado) {
+		this.ocupado = ocupado;
 	}
 
 	public void setPrecio(double precio) {
