@@ -13,6 +13,18 @@ public class Cine {
 		generarButacas();
 	}
 
+	public double getRecaudacion() {
+		return recaudacion;
+	}
+
+	public String getNombre(){
+		return nombre;
+	}
+
+	public void mostrarRecaudacion(){
+		System.out.printf("El cine %s ha recaudado: %.2f%n", nombre, recaudacion);
+	}
+
 	public void comprar(int fila, int columna){
 		fila--;
 		columna--;
@@ -25,11 +37,11 @@ public class Cine {
 			recaudacion += butacas[fila][columna].getPrecio();
 
 		} else {
-			System.out.printf("La compra no se ha realizado, la butaca %d, %d está ocupada.", fila + 1, columna + 1);
+			System.out.printf("La compra no se ha realizado, la butaca %d, %d está ocupada.%n", fila + 1, columna + 1);
 		}
 	}
 
-	public void generarButacas(){
+	private void generarButacas(){
 		for (int i = 0; i < FILAS; i++) {
 			for (int j = 0; j < COLUMNAS; j++) {
 				if (i < FILAS / 2){
@@ -42,8 +54,30 @@ public class Cine {
 		System.out.println("Butacas generadas exitosamente.");
 	}
 
-	public double getRecaudacion() {
-		return recaudacion;
+	public int contarLibres(){
+		int libres = 0;
+		for (int i = 0; i < FILAS; i++) {
+			for (int j = 0; j < COLUMNAS; j++) {
+				if(!butacas[i][j].getOcupado()) libres++;
+			}
+		}
+		return libres;
+	}
+
+	public void mostrarButacas(){
+		for (int i = 0; i < FILAS; i++) {
+			System.out.printf("Fila %d ", i + 1);
+			for (int j = 0; j < COLUMNAS; j++) {
+
+				if (!butacas[i][j].getOcupado()){
+					System.out.printf("_ ");
+				} else {
+					System.out.printf("x ");
+				}
+			}
+			System.out.println();
+		}
+
 	}
 }
 
